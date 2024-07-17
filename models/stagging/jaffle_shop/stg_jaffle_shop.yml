@@ -6,7 +6,7 @@ models:
     columns:
       - name: customer_id
         description: primary key
-        tests:
+        data_tests:
           - unique
           - not_null
   - name: stg_jaffle_shop__orders
@@ -14,12 +14,12 @@ models:
     columns:
       - name: order_id
         description: primary key
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: status
-        description: "{{docs('order_status')}}"
-        tests:
+        description: '{{ doc("orders_status") }}'
+        data_tests:
           - accepted_values:
               values: ['shipped', 'completed', 'return_pending', 'returned', 'placed']
               
